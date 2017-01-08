@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="p2s3">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="description">
+
+		<!-- Disable scrolling and zooming to make app feed more native -->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>P2S3</title>
+
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Style -->
+			<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+			<!-- Theme -->
+				<link rel="stylesheet" type="text/css" href="app/style/style.css">
+
+		<!-- Scripts -->
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+			<!-- Angular and the gang -->
+				<script src="bower_components/angular/angular.js"></script>
+				<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+			<!-- Main Open Note Scripts -->
+				<script src="app/p2s3.js"></script>
+
+				<!-- Services --
+					<script src="app/services/s3Service.js"></script>
+
+				<!-- Controllers --
+					<script src="app/controllers/downloadController.js"></script>
+					<script src="app/controllers/uploadController.js"></script>-->
+
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+			<h1>
+				<a href="#/">Peer to S3</a>
+			</h1>
+			<p>Tool to create signed S3 urls and to upload files to them.</p>
+		</div>
+
+		<div class="container">
+			<div ng-view></div>
+		</div>
+	</body>
+</html>

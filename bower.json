@@ -1,0 +1,24 @@
+{
+  "name": "p2s3",
+  "authors": [
+    "FoxUSA <jake@jakelis.com>"
+  ],
+  "description": "Peer to S3",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "aws-sdk": "2.7.21",
+    "angular": "1.6.1",
+    "angular-route": "1.6.1",
+    "bootstrap": "3.3.7"
+  }
+}

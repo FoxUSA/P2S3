@@ -1,0 +1,16 @@
+{
+  "name": "p2s3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+      "grunt": "^1.0.1",
+      "grunt-cli": "^1.2.0",
+      "grunt-contrib-jshint": "^1.1.0",
+      "grunt-contrib-watch": "^1.0.0",
+      "grunt-contrib-connect": "^1.0.2",
+      "grunt-shell": "^2.1.0"
+  }
+}
