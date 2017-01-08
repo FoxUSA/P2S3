@@ -9,7 +9,7 @@
             </a>
         </div>
         <p>
-            Lorum Ipsum asdfsf alskdf lkasndfn adnfl nalskdfn asd
+            Create a S3 one time signed url using the getSignedUrl command
         </p>
     </div>
     <div class="col-sm-6">
@@ -22,7 +22,7 @@
             </a>
         </div>
         <p>
-            Lorum Ipsum asdfsf alskdf lkasndfn adnfl nalskdfn asd
+            Upload a file to a signed url using a HTTP PUT
         </p>
     </div>
 
@@ -39,6 +39,54 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <p>This aaaaaaaaaaaaaaaaaaaaaa sfasdfasdfasdfasdfasdf</p>
+        <h2 class="text-center">
+            <span class="glyphicon glyphicon-info-sign"></span>
+            <div>About</div>
+        </h1>
+        <hr>
+        <div class="col-sm-6">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ahXgjuAphj4" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p>This utility securiy generate a url. You can send someone this link which alows them to upload a file to S3 without requireing you to creating them an account or give them credentals.
+            This method uses the getSignedUrl method provided by AWS. </p>
+
+            <p>Once you generate the URL, ether send the signed url and a link to this app. Or send a single combined link.</p>
+
+            <p>The max file size is 5 GB.</p>
+
+            <h4>Usecases</h4>
+            <p>
+                You are a consultant and need to have a way of uploading a file securly to a clients account. If your client didn't provide you with something like DropBox.
+            </p>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="text-center">
+            <span class="glyphicon glyphicon-lock"></span>
+            <div>Security</div>
+        </h1>
+        <hr>
+        <p>This utility does not save your credentals. Your browser communicating with AWS. It is also opensource so the community can audit the code.</p>
+        <p>The url generated is only usable once, only allows a specific file type, you specify the location it will be uploaded, and will expire at a configured time. If you enable encryption at link creation we will tell S3 to encrpt the object serverside with AES 256 using the default key in AWS KMS</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="text-center">
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            <div>Credit</div>
+        </h1>
+        <hr>
+        <p>Created By Jacob Liscom</p>
+        <p>Released under a MIT license</p>
     </div>
 </div>

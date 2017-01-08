@@ -1,3 +1,7 @@
 .row {
     margin-bottom: 15px;
 }
+
+.output kbd{
+    overflow: scroll;
+}

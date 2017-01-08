@@ -16,7 +16,7 @@ p2s3.config(function($routeProvider,$locationProvider){
                 templateUrl: "app/views/home.html",
             })
 		.when("/sign/",{
-                //controller: "tagController",
+                controller: "SignController",
                 templateUrl: "app/views/sign.html",
             })
         .when("/upload/:url?",{
