@@ -9,18 +9,43 @@
 </div>
 <div class="row">
 	<div class="col-sm-6">
+		<div class="output" ng-show="progress">
+			<h3>Output</h3>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-success" ng-class=" progress<100 ? 'active' : 'done'" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+				</div>
+			</div>
+		</div>
+
+		<h3>Common issues</h3>
 		<p>
-			Bla
+			 Invalid file type. The signed URL is good for only one file type. Example being a zip file.
+		</p>
+		<p>
+			 The senders did not setup the bucket correctly. If you are getting a forbidden error this could be why. Tell the sending to setup CORS
+		</p>
+		<p>
+			The link expired. Ask the sender to setup another
 		</p>
 	</div>
     <div class="col-sm-6">
 		<form>
-			<div class="form-group">
-				<label>URL</label>
-				<input ng-model = "username" type="text" class="form-control"/>
+			<div class="form-group" ng-show="uploadInfo.contentType">
+				<label>Expires</label>
+				<p>{{uploadInfo.expiresString}}</p>
+			</div>
+			<div class="form-group" ng-show="uploadInfo.contentType">
+				<label>Required Content Type</label>
+				<p>{{uploadInfo.contentType}}</p>
 			</div>
 			<div class="form-group">
-				<button class="form-control btn btn-success" ng-click="login();">
+				<label>URL</label>
+				<input ng-model = "uploadInfo.url" type="text" class="form-control" ng-change="updateForm(uploadInfo.url)"/>
+			</div>
+			<div class="form-group">
+				<button id="uploadButton" class="form-control btn btn-success"
+						ngf-select="upload($file)"
+						ngf-accept="uploadInfo.contentType">
 					Upload
 				</button>
 			</div>

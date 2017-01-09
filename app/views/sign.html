@@ -9,7 +9,7 @@
 </div>
 <div class="row">
 	<div class="col-sm-6">
-		<span class="output" ng-show="output">
+		<div class="output" ng-show="output">
 			<h3>Output</h3>
 			<div class="form-group">
 				<label>Signed URL</label>
@@ -19,14 +19,32 @@
 				<label>P2S3 URL</label>
 				<kbd class="col-xs-12">{{output.p3s3URL}}</kbd>
 			</div>
-			<hr>
-		</span>
+		</div>
 
 
 		<h3>Help</h3>
 		<p>
-			Bla
+			The buckets needs to have an open CORS configuration.
 		</p>
+
+		<p>
+			It can be accessed by right clicking a bucket in <a href="https://console.aws.amazon.com/s3/home">S3 Management Console</a>. Click on permissions and click "Edit CORS Configuration".
+		</p>
+
+		<h4>Example policy below</h4>
+		<pre>
+			&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+			&lt;CORSConfiguration xmlns=&quot;http://s3.amazonaws.com/doc/2006-03-01/&quot;&gt;
+			    &lt;CORSRule&gt;
+			        &lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;
+			        &lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;
+			        &lt;AllowedMethod&gt;PUT&lt;/AllowedMethod&gt;
+			        &lt;AllowedMethod&gt;POST&lt;/AllowedMethod&gt;
+			        &lt;AllowedMethod&gt;DELETE&lt;/AllowedMethod&gt;
+			        &lt;AllowedHeader&gt;*&lt;/AllowedHeader&gt;
+			    &lt;/CORSRule&gt;
+			&lt;/CORSConfiguration&gt;
+		</pre>
 	</div>
     <div class="col-sm-6">
 		<form>
@@ -49,7 +67,7 @@
 			</div>
 			<div class="form-group">
 				<label>Path</label>
-				<input ng-model = "path" type="text" class="form-control"/>
+				<input ng-model = "path" type="text" class="form-control" placeholder="folder/file.zip"/>
 
 			</div>
 			<div class="form-group">
@@ -59,7 +77,6 @@
 					<option value="image/jpeg">
 					<option value="application/zip">
 				</datalist>
-
 			</div>
 			<div class="form-group">
 				<label>Encryption</label>

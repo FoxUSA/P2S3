@@ -1,7 +1,9 @@
 .row {
     margin-bottom: 15px;
 }
-
-.output kbd{
-    overflow: scroll;
+.output{
+    margin-bottom: 10px;
+}
+.output kbd, pre code{
+    overflow-x: scroll;
 }

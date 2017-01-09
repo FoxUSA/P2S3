@@ -4,7 +4,7 @@
  */
 
 //Module Declaration
-var p2s3 = angular.module("p2s3", ["ngRoute"]);
+var p2s3 = angular.module("p2s3", ["ngRoute","ngFileUpload"]);
 
 p2s3.run(function (){});
 
@@ -12,7 +12,7 @@ p2s3.run(function (){});
 p2s3.config(function($routeProvider,$locationProvider){
 	$locationProvider.hashPrefix("");
 	$routeProvider
-        .when("/home",{
+        .when("/home/",{
                 templateUrl: "app/views/home.html",
             })
 		.when("/sign/",{
@@ -20,8 +20,8 @@ p2s3.config(function($routeProvider,$locationProvider){
                 templateUrl: "app/views/sign.html",
             })
         .when("/upload/:url?",{
-                //controller: "noteController",
+                controller: "UploadController",
                 templateUrl: "app/views/upload.html"
             })
-		.otherwise({ redirectTo: "/home" });
+		.otherwise({ redirectTo: "/home/" });
 });

@@ -32,7 +32,7 @@ p2s3.controller("SignController", function ($scope) {
             Bucket:$scope.bucket,
             Key:$scope.path,
             ContentType:$scope.mimeType,
-            Expires: $scope.Expiration * $scope.expMult
+            Expires: Math.floor($scope.expiration * $scope.expMult)
         };
 
         if($scope.encryption)
@@ -43,15 +43,14 @@ p2s3.controller("SignController", function ($scope) {
             if(err)
                 throw err;
 
-            var uploadInfo=window.btoa(JSON.stringify({
-                url:data,
-                ContentType:$scope.mimeType
-            }));
+            var uploadInfo=btoa(data);
 
             $scope.output={
                 signedURL: data,
-                p3s3URL: uploadInfo
+                p3s3URL: location.origin+"#/upload/"+encodeURIComponent(uploadInfo)
             };
+
+            toastr.success("Signed URL generated", "URL");
         });
     };
 

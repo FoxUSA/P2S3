@@ -6,6 +6,6 @@
     "browser": true,
     "devel":true,
     "jquery":true,
-    "predef": [ "angular","module","AWS"],
+    "predef": [ "angular","module","AWS","toastr"],
     "globals":{"p2s3":true}
 }
