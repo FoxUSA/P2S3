@@ -54,7 +54,7 @@ p2s3.controller("SignController", function ($scope) {
 
             $scope.output={
                 signedURL: data,
-                p3s3URL: location.origin+"#/upload/?url="+encodeURIComponent(data)
+                p3s3URL: location.origin+location.pathname+"#/upload/?url="+encodeURIComponent(data)
             };
 
             toastr.success("Signed URL generated", "URL");
