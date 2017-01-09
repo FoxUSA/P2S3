@@ -4,7 +4,7 @@
  */
 
 //Module Declaration
-var p2s3 = angular.module("p2s3", ["ngRoute","ngFileUpload"]);
+var p2s3 = angular.module("p2s3", ["ngRoute","ngFileUpload","angular-clipboard"]);
 
 p2s3.run(function (){});
 
@@ -19,7 +19,7 @@ p2s3.config(function($routeProvider,$locationProvider){
                 controller: "SignController",
                 templateUrl: "app/views/sign.html",
             })
-        .when("/upload/:url?",{
+        .when("/upload/",{
                 controller: "UploadController",
                 templateUrl: "app/views/upload.html"
             })

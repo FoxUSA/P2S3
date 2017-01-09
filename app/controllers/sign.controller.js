@@ -12,6 +12,15 @@ p2s3.controller("SignController", function ($scope) {
         };
         $scope.expMult=$scope.secondsTable["Second(s)"];//Default value
 
+    //Simple toastr wrappers for success and failure
+        $scope.success=function(){
+            toastr.success("Link copied to clipboard", "Success");
+        };
+
+        $scope.fail=function(){
+            toastr.error("Unable to copy to clipboard", "Error");
+        };
+
     /**
      * Main function that geneates and returns a signed url
      * @return {[type]} [description]
@@ -43,11 +52,9 @@ p2s3.controller("SignController", function ($scope) {
             if(err)
                 throw err;
 
-            var uploadInfo=btoa(data);
-
             $scope.output={
                 signedURL: data,
-                p3s3URL: location.origin+"#/upload/"+encodeURIComponent(uploadInfo)
+                p3s3URL: location.origin+"#/upload/?url="+encodeURIComponent(data)
             };
 
             toastr.success("Signed URL generated", "URL");

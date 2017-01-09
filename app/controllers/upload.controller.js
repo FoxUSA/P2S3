@@ -1,4 +1,4 @@
-p2s3.controller("UploadController", function ($scope, $routeParams, $timeout, Upload) {
+p2s3.controller("UploadController", function ($scope, $location, $timeout, Upload) {
     $scope.uploadInfo={};
 
     /**
@@ -53,16 +53,16 @@ p2s3.controller("UploadController", function ($scope, $routeParams, $timeout, Up
         $scope.uploadInfo.url=url;
         $scope.uploadInfo.contentType=getQueryVariable(url, "Content-Type");
         var expires = new Date(getQueryVariable(url,"Expires")*1000);
-        if(expires<(new Date()).getTime())
+        if(url&&expires<(new Date()).getTime())
             toastr.error("Link has expired. Ask sender to generate another.", "Error");
         $scope.uploadInfo.expiresString =expires.toString();
     };
 
     //See if any data was passed in
-        var url = $routeParams.url;
+        var url = $location.search().url;
         if(url){
             try{
-                $scope.updateForm(atob(url));
+                $scope.updateForm(url);
             }
             catch(error){
                 toastr.error("Invalid data passed in", "Error");

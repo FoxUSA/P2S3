@@ -14,10 +14,12 @@
 			<div class="form-group">
 				<label>Signed URL</label>
 				<kbd class="col-xs-12">{{output.signedURL}}</kbd>
+				<button class="btn" clipboard supported="supported" text="output.signedURL" on-copied="success()" on-error="fail()"><span class="glyphicon glyphicon-copy"></span></button>
 			</div>
 			<div class="form-group">
 				<label>P2S3 URL</label>
 				<kbd class="col-xs-12">{{output.p3s3URL}}</kbd>
+				<button class="btn" clipboard supported="supported" text="output.p3s3URL" on-copied="success()" on-error="fail()"><span class="glyphicon glyphicon-copy"></span></button>
 			</div>
 		</div>
 
