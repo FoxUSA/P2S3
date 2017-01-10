@@ -25,24 +25,13 @@
             Upload a file to a signed url using a HTTP PUT
         </p>
     </div>
-
-    <!--
-    <div class="col-sm-6">
-        <h3>Create signed url</h3>
-        <div ng-include="'app/views/sign.html'"></div>
-    </div>
-
-    <div class="col-sm-6">
-        <h3>Upload to a signed url</h3>
-        <div ng-include="'app/views/upload.html'"></div>
-    </div>-->
 </div>
 <div class="row">
     <div class="col-xs-12">
         <h2 class="text-center">
             <span class="glyphicon glyphicon-info-sign"></span>
             <div>About</div>
-        </h1>
+        </h2>
         <hr>
         <div class="col-sm-6">
             <div class="embed-responsive embed-responsive-16by9">
@@ -50,8 +39,10 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <p>This utility security generate a URL. You can send someone this link which allows them to upload a file to S3 without requiring you to creating them an account or give them credentials.
-            This method uses the getSignedUrl method provided by AWS. </p>
+            <p>
+                This utility security generate a URL. You can send someone this link which allows them to upload a file to S3 without requiring you to creating them an account or give them credentials.
+                This method uses the getSignedUrl method provided by AWS.
+            </p>
             <p>Once you generate the URL, ether send the signed url and a link to this app. Or send a single combined link.</p>
 
             <p>The max file size is 5 GB.</p>
@@ -60,8 +51,9 @@
             <p>
                 You are a consultant and need to have a way of uploading a file securely to a clients account. If your client didn't provide you with something like DropBox.
             </p>
-
-
+            <p>
+                Want to upload a file from another PC and but do not want to log into AWS account or transfer your keys to the machine.
+            </p>
         </div>
     </div>
 </div>
