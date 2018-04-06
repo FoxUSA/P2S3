@@ -1,7 +1,13 @@
 p2s3.controller("SignController", function ($scope) {
+    $scope.actions = {
+        putObject: "putObject",
+        getObject: "getObject"
+    };
     $scope.mimeType="";
     $scope.defaultURL=true;
     $scope.mimeType="application/zip";
+    $scope.action=$scope.actions.putObject;
+
     //expiration defaults
         $scope.expiration=900;
         $scope.secondsTable = {
@@ -30,9 +36,11 @@ p2s3.controller("SignController", function ($scope) {
         var s3Params = {
             accessKeyId:$scope.accessKeyId,
             secretAccessKey:$scope.secretAccessKey,
+            s3ForcePathStyle: true,
+            signatureVersion: "v2"//required for really long tokens
         };
 
-        if($scope.defaultURL)//Override the endpoint url if your using a custom s3 api like minio
+        if(!$scope.defaultURL)//Override the endpoint url if your using a custom s3 api like minio
             s3Params.endpoint=$scope.url;
 
         var s3= new AWS.S3(s3Params);
@@ -40,15 +48,17 @@ p2s3.controller("SignController", function ($scope) {
         var urlParams = {
             Bucket:$scope.bucket,
             Key:$scope.path,
-            ContentType:$scope.mimeType,
             Expires: Math.floor($scope.expiration * $scope.expMult)
         };
 
-        if($scope.encryption)
-            urlParams.ServerSideEncryption = "AES256";
+        if($scope.action==$scope.actions.putObject){
+            urlParams.ContentType=$scope.mimeType;
+            if($scope.encryption)
+                urlParams.ServerSideEncryption = "AES256";
+        }
 
 
-        s3.getSignedUrl("putObject",urlParams,function(err,data){
+        s3.getSignedUrl($scope.action,urlParams,function(err,data){
             if(err)
                 throw err;
 

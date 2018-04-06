@@ -51,6 +51,13 @@
     <div class="col-sm-6">
 		<form>
 			<div class="form-group">
+				<label>Action</label>
+				<select class="form-control" ng-model="action">
+					<option value="{{actions.putObject}}">Upload</option>
+					<option value="{{actions.getObject}}">Download</option>
+				</select>
+			</div>
+			<div class="form-group">
 				<label>Access Key</label>
 				<input ng-model = "accessKeyId" type="text" class="form-control"/>
 			</div>
@@ -72,7 +79,7 @@
 				<input ng-model = "path" type="text" class="form-control" placeholder="folder/file.zip"/>
 
 			</div>
-			<div class="form-group">
+			<div class="form-group" ng-hide="action!=actions.putObject">
 				<label>FileType(MIME Type)</label>
 				<input ng-model = "mimeType" type="text" class="form-control" list="types"/>
 				<datalist id="types">
@@ -80,7 +87,7 @@
 					<option value="application/zip">
 				</datalist>
 			</div>
-			<div class="form-group">
+			<div class="form-group" ng-hide="action!=actions.putObject">
 				<label>Encryption</label>
 				<input ng-model = "encryption" type="checkbox"/>
 			</div>
